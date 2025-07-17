@@ -19,7 +19,7 @@ public class Major {
     @Column(name = "MajorName", columnDefinition = "NVARCHAR(100)",nullable = false)
     private String majorName;
 
-    /** Một major có nhiều sinh viên thuộc về major đó. Hay nói theo oop thì trong class major sẽ có một danh sách sinh viên là thuộc tính.
+    /* Một major có nhiều sinh viên thuộc về major đó. Hay nói theo oop thì trong class major sẽ có một danh sách sinh viên là thuộc tính.
      * Thiết kế quan hệ đơn hướng nhìn từ bảng 1 ta làm như sau:
      * fetchtype: EAGER: khi load major thì lập tức load tất cả student thuộc major đó |LAZY: chỉ load major, student chỉ load khi được gọi bằng hàm get()
      * CascadeType: Khi major được thực hiện thao tác gì thì tự động student thuộc major đó sẽ lập tức bị tác động theo. ALL: tất cả các thao tác.*/

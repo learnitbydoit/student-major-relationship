@@ -31,14 +31,11 @@ public class Student {
     @Column(name = "Gpa")
     private double gpa;
     //private String majorId; // Kết nối với major ==> database ==> sai, vì hibernate yêu cầu theo obj
-    /**
-     * Phải có một thuộc tính là obj major để ánh xạ*/
+    // Phải có một thuộc tính là obj major để ánh xạ
     @ManyToOne //vì bảng sinh viên là
     @JoinColumn(name = "MajorId") //Đặt tên cột khóa ngoại khi ánh xạ xuống bảng
     private Major major; // Sẽ là tên được khai báo trong mappedBy của class Major
 
-
-    //
     //Tự thêm một constructor đầy đủ tham số mà bỏ Id, vì Id là key tự tăng, không nhập. Major sẽ được thêm vào sau, nên cũng không có
 
     public Student(String fullName, Gender gender, LocalDate dob, double gpa) {

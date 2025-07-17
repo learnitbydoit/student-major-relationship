@@ -29,7 +29,7 @@ public class MainBiDirectional {
         cseMajor.addStudent(std1);
         cseMajor.addStudent(std2);
         //Cách 2
-        /** Nếu dùng cách này thì phải kiểm tra major của sinh viên trước khi set, có đúng với major đã add sinh viên không.*/
+        /* Nếu dùng cách này thì phải kiểm tra major của sinh viên trước khi set, có đúng với major đã add sinh viên không.*/
         List<Student> cswStudents = new ArrayList<>();
         cswStudents.add(std3);
         cswStudents.add(std4);

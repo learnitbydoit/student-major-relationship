@@ -31,8 +31,7 @@ public class Student {
     @Column(name = "Gpa")
     private double gpa;
     //private String majorId; // Kết nối với major ==> database ==> sai, vì hibernate yêu cầu theo obj
-    /**
-     * Phải có một thuộc tính là obj major để ánh xạ*/
+     // Phải có một thuộc tính là obj major để ánh xạ
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "MajorId") //Đặt tên cột khóa ngoại khi ánh xạ xuống bảng
     private Major major;
