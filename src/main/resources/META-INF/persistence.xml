@@ -11,9 +11,12 @@
     <persistence-unit name="pu1_student_major_relationship" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Khai báo các entity class để map xuống table, chỉ cần gõ tên class và chọn -->
-        <class>vn.edu.eiu.testlab.entity.unionemany.Major</class>
-        <class>vn.edu.eiu.testlab.entity.unionemany.Student</class>
-
+        <!--<class>vn.edu.eiu.testlab.entity.unionemany.Major</class>
+        <class>vn.edu.eiu.testlab.entity.unionemany.Student</class>-->
+        <!--<class>vn.edu.eiu.testlab.entity.unimanyone.Student</class>
+        <class>vn.edu.eiu.testlab.entity.unimanyone.Major</class>-->
+        <class>vn.edu.eiu.testlab.entity.bidirectional.Student</class>
+        <class>vn.edu.eiu.testlab.entity.bidirectional.Major</class>
 
         <!-- Cấu hình kết nối CSDL -->
         <properties>
