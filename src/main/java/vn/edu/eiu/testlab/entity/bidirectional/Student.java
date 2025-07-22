@@ -1,9 +1,7 @@
 package vn.edu.eiu.testlab.entity.bidirectional;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import vn.edu.eiu.testlab.entity.Gender;
 
 import java.time.LocalDate;
@@ -43,5 +41,17 @@ public class Student {
         this.gender = gender;
         this.dob = dob;
         this.gpa = gpa;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", gender=" + gender +
+                ", dob=" + dob +
+                ", gpa=" + gpa +
+                ", major=" + major +
+                '}';
     }
 }

@@ -1,16 +1,16 @@
 package vn.edu.eiu.testlab.entity.bidirectional;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+
 @Entity
 @Table(name = "tbl_Major")
 public class Major {
@@ -31,7 +31,6 @@ public class Major {
     //@JoinColumn(name = "MajorId")
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy ="major")
     private List<Student> students = new ArrayList<>();
-
     //Khi có sinh viên thuộc major nào thì phải thêm vào List của major đó:
     public void addStudent(Student student){
         //Thêm student vào danh sách student của major
@@ -40,10 +39,22 @@ public class Major {
         //Đồng thời thêm major cho student
         student.setMajor(this);
     }
+    public void removeStudent(Student student){
+        students.remove(student);
+        student.setMajor(null);
+    }
     //Tạo một constructor không có tham số List student, vì student sẽ được thêm sau
 
     public Major(String majorId, String majorName) {
         this.majorId = majorId;
         this.majorName = majorName;
+    }
+
+    @Override
+    public String toString() {
+        return "Major{" +
+                "majorId='" + majorId + '\'' +
+                ", majorName='" + majorName + '\'' +
+                '}';
     }
 }

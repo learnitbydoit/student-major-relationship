@@ -24,10 +24,12 @@ public class MainBiDirectional {
         Student std2 = new Student("Nhị Nguyễn", Gender.FEMALE, LocalDate.parse("2001-05-15"),8.4);
         Student std3 = new Student("Tam Lương", Gender.FEMALE, LocalDate.parse("2000-12-25"),8.1);
         Student std4 = new Student("Tứ Lý", Gender.MALE, LocalDate.parse("2001-03-13"),8.1);
+        System.out.println(std4);
         //#3.1 Thêm student vào major
         //Cách 1
         cseMajor.addStudent(std1);
         cseMajor.addStudent(std2);
+
         //Cách 2
         /* Nếu dùng cách này thì phải kiểm tra major của sinh viên trước khi set, có đúng với major đã add sinh viên không.*/
         List<Student> cswStudents = new ArrayList<>();
@@ -46,7 +48,23 @@ public class MainBiDirectional {
         em.persist(cseMajor);
         em.persist(cswMajor);
         em.getTransaction().commit();
+
+        //Xóa thử student 1
+        //Bước 1 tìm student và major (cha) của student
+        Student std5 = em.find(Student.class, 1);
+        Major std5Major = em.find(Major.class, std5.getMajor().getMajorId());
+
+        //Bước 2: Ngắt mối quan hệ với cha
+        std5Major.removeStudent(std5);
+
+        //Bước 3: Xóa
+        em.getTransaction().begin();
+        em.remove(std5);
+        System.out.println("Deleted std5");
+        em.getTransaction().commit();
         em.close();
+
+        //
     }
 
 }
